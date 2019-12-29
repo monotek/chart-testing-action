@@ -144,7 +144,7 @@ helm_init() {
 
 run_ct() {
     echo "Running 'ct $command'..."
-    docker_exec ct "$command" --helm-extra-args --timeout 3600
+    docker_exec ct "$command" --helm-extra-args '--timeout 3600'
     echo
 }
 
