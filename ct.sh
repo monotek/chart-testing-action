@@ -116,8 +116,6 @@ run_ct_container() {
         args+=("--volume=$(pwd)/$config:/etc/ct/ct.yaml" )
     fi
 
-    args+="--helm-extra-args --timeout 3600"
-
     args+=("$image" cat)
 
     docker "${args[@]}"
@@ -146,7 +144,7 @@ helm_init() {
 
 run_ct() {
     echo "Running 'ct $command'..."
-    docker_exec ct "$command"
+    docker_exec ct "$command" --helm-extra-args --timeout 3600
     echo
 }
 
